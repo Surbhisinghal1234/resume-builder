@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+// import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Resume from "./Resume";
 import Create from "./Create";
 import Builder from "./Builder";
@@ -10,11 +10,50 @@ import MyDetails from "./MyDetails";
 import AboutMe from "./AboutMe";
 import SkillsProficiencies from "./SkillsProficiencies";
 import WorkExperiences from "./WorkExperiences";
+import { RouterProvider, createBrowserRouter } from "react-router-dom";
 
 function Main() {
+  const router = createBrowserRouter([
+    {
+      path: "/",
+      element: (
+        <>
+          <Resume />
+          <Create />
+        </>
+      ),
+    },
+    {
+      path: "/new-resume",
+      element: <NewResume />,
+      children: [
+        { path: "", element: <SelectSection /> },
+        {
+          path: "my-details",
+          element: <MyDetails />,
+        },
+        {
+          path: "about-me",
+          element: <AboutMe />,
+        },
+        {
+          path: "skills-and-proficiencies",
+          element: <SkillsProficiencies />,
+        },
+        {
+          path: "work-experiences",
+          element: <WorkExperiences />,
+        },
+      ],
+    },
+    {
+      path: "*",
+      element: "page not found",
+    },
+  ]);
   return (
     <>
-      <BrowserRouter>
+      {/* <BrowserRouter>
         <Routes>
           <Route
             path="/"
@@ -36,9 +75,9 @@ function Main() {
           <Route element={<WorkExperiences />} path="work-experiences" />
           </Route>
         </Routes>
-      </BrowserRouter>
+      </BrowserRouter> */}
 
-    
+      <RouterProvider router={router} />
     </>
   );
 }
