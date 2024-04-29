@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 function Create() {
   return (
     <>
-    <div className="container mx-auto">
+    <div className="container mx-auto w-[90%]">
 
 
       <Link to="/new-resume"

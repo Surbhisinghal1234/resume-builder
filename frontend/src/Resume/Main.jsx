@@ -11,6 +11,7 @@ import AboutMe from "./AboutMe";
 import SkillsProficiencies from "./SkillsProficiencies";
 import WorkExperiences from "./WorkExperiences";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import "./resume.css"
 
 function Main() {
   const router = createBrowserRouter([

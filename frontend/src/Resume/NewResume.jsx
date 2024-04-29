@@ -9,10 +9,10 @@ import { Outlet } from 'react-router-dom'
 function NewResume() {
   return (
   <>
-  <div className='flex '>
+  <div className='flex w-[100%] '>
 
   <Builder/>
-  <section className='flex justify-around w-full'>
+  <section className='flex w-full'>
   <Edit/>
   <ResumeProfile/>
   {/* <Outlet/> */}

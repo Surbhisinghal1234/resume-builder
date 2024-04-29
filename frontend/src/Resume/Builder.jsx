@@ -8,7 +8,7 @@ import MiscellaneousServicesIcon from "@mui/icons-material/MiscellaneousServices
 function Builder() {
   return (
     <>
-      <div className="h-screen w-[25%] p-4 bg-slate-200 flex flex-col gap-[1rem] ">
+      <div className="h-screen w-[20%] p-4 bg-slate-200 flex flex-col gap-[1rem]  ">
         <div className="">
           
            <NavLink className="text-2xl font-bold" to="/">Resume Builder</NavLink>

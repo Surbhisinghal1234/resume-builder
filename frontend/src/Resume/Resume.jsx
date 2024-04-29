@@ -3,7 +3,7 @@ import React from "react";
 function Resume() {
   return (
     <>
-      <div className="container mx-auto">
+      <div className="container mx-auto w-[90%]">
         <div className="flex items-center justify-between ">
           <div className="flex items-center justify-center gap-[2rem]">
             <div className=" ">
