@@ -1,4 +1,4 @@
-import React from "react";
+import React, { createContext, useState, useContext } from "react";
 // import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Resume from "./Resume";
 import Create from "./Create";
@@ -11,9 +11,16 @@ import AboutMe from "./AboutMe";
 import SkillsProficiencies from "./SkillsProficiencies";
 import WorkExperiences from "./WorkExperiences";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
-import "./resume.css"
+import "./resume.css";
+export const inputContext = createContext();
 
 function Main() {
+  const [name, setName] = useState("");
+  const [role, setRole] = useState("");
+  const [totalExp, setTotalExp] = useState("");
+  const [message, setMessage] = useState("");
+  const [image, setImage] = useState("");
+
   const router = createBrowserRouter([
     {
       path: "/",
@@ -77,8 +84,9 @@ function Main() {
           </Route>
         </Routes>
       </BrowserRouter> */}
-
-      <RouterProvider router={router} />
+      <inputContext.Provider value={{name, setName,role, setRole,totalExp, setTotalExp,message,setMessage,image,setImage}}>
+        <RouterProvider router={router} />
+      </inputContext.Provider>
     </>
   );
 }
