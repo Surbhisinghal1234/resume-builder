@@ -35,7 +35,7 @@ function Builder() {
           <li>
             <NavLink  to="work-experiences" className="flex items-center w-full inline-block p-2 rounded-md bg-slate-700 text-white">
               <BusinessCenterOutlinedIcon className="mr-2" />
-              My Details
+              Work Exprience
             </NavLink>
           </li>
         </ul>

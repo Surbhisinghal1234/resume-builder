@@ -1,8 +1,28 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useState, useEffect  } from "react";
 import {Link, Outlet} from "react-router-dom";
 import ArrowRightAltIcon from "@mui/icons-material/ArrowRightAlt";
+import { inputContext } from "./Main";
+
 
 function Edit() {
+
+  const {
+    name,
+    setName,
+    role,
+    setRole,
+    totalExp,
+    setTotalExp,
+    message,
+    setMessage,
+    image,
+    setImage,
+    input,
+    setInput,
+    workExperience,
+    setWorkExperience,
+  } = useContext(inputContext);
+
   const urlObject = [
     "my-details",
     "about-me",
@@ -19,11 +39,55 @@ function Edit() {
   useEffect(() => {
     setNextPage(urlObject[counter]);
   }, [counter]);
-  1;
+
+
+  const dataSave = {
+    details: {
+      image: image,
+      name: name,
+      role: role,
+      totalExp: totalExp,
+    },
+    AboutMe: {
+      message: message,
+      pointers: input,
+    },
+    workExperience: workExperience,
+  };
+
+  console.log(dataSave, "4");
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    fetch("http://localhost:8000/send", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(dataSave),
+    });
+  console.log("surbhi")
+
+  }
+  // console.log(dataSave)
+
+  // function handleSubmit(e) {
+  //   e.preventDefault();
+  //   fetch("http://localhost:8000/submit", {
+  //       method: "POST",
+  //       headers: {
+  //         "Content-Type": "application/json",
+  //       },
+  //       body: JSON.stringify({
+
+  //       }),
+  //     }); 
+  // } 
+
   return (
     <>
       <div className="resumeSection w-1/2 px-[2rem]">
-        <form method="post">
+        <form method="post" onSubmit={handleSubmit}>
           <div className="form-group flex justify-end">
             {/* <button className="next bg-slate-500 text-white rounded px-2 py-2 mt-[2rem]" onClick={handleNextClick}>
               Next <ArrowRightAltIcon />
@@ -35,9 +99,18 @@ function Edit() {
               Next <ArrowRightAltIcon />
             </Link>
           </div>
+          <button type="submit"
+          className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+          // onClick={handleSubmit}
+        >
+          Submit
+        </button>
         </form>
         <Outlet />
+        
+
       </div>
+     
     </>
   );
 }

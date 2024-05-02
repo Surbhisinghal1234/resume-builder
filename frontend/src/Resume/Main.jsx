@@ -20,6 +20,21 @@ function Main() {
   const [totalExp, setTotalExp] = useState("");
   const [message, setMessage] = useState("");
   const [image, setImage] = useState("");
+  const [input, setInput] = useState([""]);
+
+  const [workExperience, setWorkExperience] = useState({
+    clientDescription: "",
+    country: "",
+    projectName: "",
+    roleWork: "",
+    startDate: "",
+    endDate: "",
+    businessSolution: "",
+    technologyStack: [""],
+    projectResponsibility: [""],
+  });
+
+  console.log(workExperience, "hello");
 
   const router = createBrowserRouter([
     {
@@ -84,7 +99,23 @@ function Main() {
           </Route>
         </Routes>
       </BrowserRouter> */}
-      <inputContext.Provider value={{name, setName,role, setRole,totalExp, setTotalExp,message,setMessage,image,setImage}}>
+      <inputContext.Provider
+        value={{
+          name,
+          setName,
+          role,
+          setRole,
+          totalExp,
+          setTotalExp,
+          message,
+          setMessage,
+          image,
+          setImage,
+          input,
+          setInput,
+          workExperience ,setWorkExperience,
+        }}
+      >
         <RouterProvider router={router} />
       </inputContext.Provider>
     </>

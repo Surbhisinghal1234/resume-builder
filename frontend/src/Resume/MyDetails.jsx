@@ -40,12 +40,14 @@ function MyDetails() {
 
       </div> */}
 
-      <div className="mt-[3rem] mb-5">
-        <h2 className="font-bold text-2xl my-5">Upload Photo</h2>
+      {/* <div className="mt-[2rem] mb-5"> */}
+      <div className="flex gap-[1.3rem] flex-col">
 
-        <div className="flex justify-center items-center">
+        {/* <h2 className="font-bold text-2xl mb-5">Upload Photo</h2> */}
+
+        <div className="flex gap-[2rem]">
+          <label htmlFor="">Upload Photo</label>
           <input type="file" onChange={handleChangeImage} />
-          {/* disabled={!editable} */}
           {image && (
             <img
               // type="image"
@@ -54,20 +56,19 @@ function MyDetails() {
             />
           )}
         </div>
-      </div>
-      <div className="flex gap-[1rem] flex-col">
+      {/* </div> */}
         <div className="flex gap-[4rem]">
           <label htmlFor="">Name</label>
           <input value={name} onChange={(e) => setName(e.target.value)}
             type="text"
-            className=" border-2 border-black rounded-sm px-5"
+            className=" border-2 border-gray-500 rounded-sm px-5"
           />
         </div>
         <div className="flex gap-[4.5rem]">
           <label htmlFor="">Role</label>
           <input value={role} onChange={(e) => setRole(e.target.value)} 
             type="text"
-            className=" border-2 border-black rounded-xl px-5 w-[6rem]"
+            className=" border-2 border-gray-500 rounded px-5 w-[6rem]"
           />
         </div>
 
@@ -75,11 +76,11 @@ function MyDetails() {
           <label htmlFor="">Total Exp:</label>
           <input  value={totalExp} onChange={(e) => setTotalExp(e.target.value)}
             type="text"
-            className=" border-2 border-black rounded-md px-5 w-[6rem]"
+            className=" border-2 border-gray-500 rounded px-5 w-[6rem]"
           />
         </div>
       </div>
-      <button onClick={handleSave}>Save</button>
+      <button className="rounded-lg bg-slate-500 text-white px-4 py-1 mt-10" onClick={handleSave}>Save</button>
     </>
   );
 }
